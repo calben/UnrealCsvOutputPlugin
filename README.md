@@ -6,6 +6,12 @@ Download the zip or clone this repository into your Plugins/ directory.
 This plugin also depends on GetNamo's wonderful socketio-client-ue4-plugin here: https://github.com/getnamo/socketio-client-ue4.
 Make sure you download and install that plugin to your project's directory as well.
 
+Alternatively, if you like using submodules, use something like the below:
+
+```
+git submodule add https://github.com/getnamo/socketio-client-ue4 Plugins/SocketIoClient
+git submodule add https://github.com/calben/UnrealCsvOutputPlugin Plugins/CsvOutput
+```
 
 ## Usage
 
