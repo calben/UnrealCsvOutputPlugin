@@ -46,7 +46,7 @@ public:
 
 		P_FINISH;
 		TSharedPtr<FJsonObject> JsonObject = USIOJConvert::ToJsonObject(StructProperty->Struct, StructPtr, true);
-		LineBuffer.Add(UCsvOutputBPLibrary::InternalStructToCsvHeader(JsonObject));
+		P_THIS->LineBuffer.Add(UCsvOutputBPLibrary::InternalStructToCsvHeader(JsonObject));
 	}
 
 
@@ -62,7 +62,7 @@ public:
 		P_FINISH;
 		TSharedPtr<FJsonObject> JsonObject = USIOJConvert::ToJsonObject(StructProperty->Struct, StructPtr, true);
 
-		LineBuffer.Add(UCsvOutputBPLibrary::InternalStructToCsvRow(JsonObject));
+		P_THIS->LineBuffer.Add(UCsvOutputBPLibrary::InternalStructToCsvRow(JsonObject));
 	}
 
 	UFUNCTION(BlueprintCallable)
