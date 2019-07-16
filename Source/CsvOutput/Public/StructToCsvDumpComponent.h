@@ -6,6 +6,10 @@
 #include "Components/ActorComponent.h"
 #include "CsvOutputBPLibrary.h"
 #include "Runtime/Core/Public/Misc/FileHelper.h"
+
+#include <iostream>
+#include <fstream>
+
 #include "StructToCsvDumpComponent.generated.h"
 
 
@@ -72,8 +76,11 @@ public:
 
 		if (PlatformFile.CreateDirectoryTree(*FileDirectory))
 		{
-			FString AbsoluteFilePath = FileDirectory + "/" + FileName;
-			FFileHelper::SaveStringToFile(FString::Join(LineBuffer, TEXT("\n")), *AbsoluteFilePath);
+			std::ofstream f;
+			f.open(*(FileDirectory + "/" + FileName));
+			const std::string s = TCHAR_TO_UTF8(*FString::Join(LineBuffer, TEXT("\n")));
+			f << s;
+			f.close();
 		}
 	}
 };
